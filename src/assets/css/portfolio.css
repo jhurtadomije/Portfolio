@@ -1,0 +1,279 @@
+/* ===================== */
+/*   SECCIÓN PORTFOLIO   */
+/* ===================== */
+#portfolio {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--color-secundario), var(--color-fondo));
+  text-align: center;
+}
+
+#portfolio h2 {
+  font-size: 3rem;
+  color: var(--color-primario);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInTitle 2s ease-out forwards;
+}
+
+/* Contenedor de proyectos */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* ===================== */
+/*        CARDS          */
+/* ===================== */
+.project-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 380px; /* 🔹 altura uniforme */
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;        /* 🔹 imágenes todas iguales */
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.project-card .card-content {
+  padding: 1rem;
+  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: .4rem;
+  color: #222;
+}
+
+.project-card p {
+  flex-grow: 1; 
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.project-card .buttons {
+  display: flex;
+  gap: .5rem;
+  margin-top: auto;
+}
+
+.project-card a {
+  flex: 1;
+  text-align: center;
+  padding: .5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.3s;
+}
+
+.project-card a:first-child {
+  background: #007bff;
+}
+.project-card a:first-child:hover {
+  background: #0056b3;
+}
+.project-card a:last-child {
+  background: #333;
+}
+.project-card a:last-child:hover {
+  background: #000;
+}
+
+/* Badge (tipo de proyecto) */
+.badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  color: #fff;
+}
+.badge.profesional { background: #28a745; }
+.badge.académico { background: #007bff; }
+
+/* ===================== */
+/*         MODAL         */
+/* ===================== */
+.modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  inset: 0; /* top, right, bottom, left = 0 */
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Contenido */
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 800px;   /* 🔹 el modal no puede crecer más que esto */
+  width: 90%;         /* 🔹 en móviles ocupa el 90% */
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+  overflow-y: auto;   /* 🔹 si se llena de contenido, scroll interno */
+  max-height: 90vh;   /* 🔹 nunca más alto que la pantalla */
+}
+
+/* Botón cerrar */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.close-modal:hover {
+  color: #000;
+}
+
+/* Imagen principal */
+#modal-image {
+  display: block;
+  margin: 0 auto 1rem auto;
+  width: 100%;
+  max-width: 500px;   /* 🔹 nunca más grande que 500px */
+  max-height: 250px;  /* 🔹 nunca más alta que 250px */
+  object-fit: cover;  /* 🔹 recorta proporcionalmente */
+  border-radius: 8px;
+}
+
+/* Texto */
+#modal-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+#modal-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+#modal-tech {
+  color: #007bff;
+  font-weight: 600;
+}
+
+/* Botones */
+.modal-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.modal-buttons a {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.modal-buttons a#modal-demo {
+  background: #007bff;
+  color: #fff;
+}
+.modal-buttons a#modal-demo:hover {
+  background: #0056b3;
+}
+
+.modal-buttons a#modal-code {
+  background: #333;
+  color: #fff;
+}
+.modal-buttons a#modal-code:hover {
+  background: #000;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 1.2rem;
+  }
+  #modal-image {
+    max-height: 200px;
+  }
+  #modal-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* ===================== */
+/*      ANIMACIONES      */
+/* ===================== */
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(1.875rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===================== */
+/*   RESPONSIVE MOVIL    */
+/* ===================== */
+@media (max-width: 768px) {
+  #portfolio h2 {
+    font-size: 2.2rem;
+  }
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
