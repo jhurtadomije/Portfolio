@@ -134,3 +134,23 @@ header .logo img {
   .header { position: sticky; }
   .menu { position: relative; }
 }
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 14px 16px;
+  backdrop-filter: blur(10px);
+  background: rgba(20, 18, 40, 0.55);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.header .logo img {
+  width: 120px;   /* antes enorme */
+  height: auto;
+  display: block;
+}
+
+.menu-list {
+  gap: 22px;      /* más aire */
+  font-weight: 600;
+}

@@ -81,3 +81,44 @@
         margin-bottom: 1rem; /* Añadir espacio entre las cajas */
     }
 }
+.services {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.service {
+  grid-column: span 4;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(17,17,17,0.28);
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.service:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.22);
+}
+
+.service-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+
+.service h3 {
+  margin: 6px 0 8px;
+}
+
+.service p {
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .service { grid-column: span 12; }
+}
